@@ -3,11 +3,12 @@ use yii\helpers\Html; // используется для вывода кнопк
 use yii\widgets\ActiveForm; // подключаем виджет для вывода формы
 ?>
 <div class="col-md-8 mx-auto">
-    <h1 class="text-center">Добавление пользователя</h1>
+    <h1 class="text-center"><?=$this->title ?></h1>
 
     <!-- сообщение об успехе -->
     <?php if(Yii::$app->session->hasFlash('success')): ?>
             <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                 <?= Yii::$app->session->getFlash('success') ?>
             </div>
         <?php endif; ?>
@@ -15,6 +16,7 @@ use yii\widgets\ActiveForm; // подключаем виджет для выво
         <!-- сообщение об ошибке -->
         <?php if(Yii::$app->session->hasFlash('error')): ?>
             <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                 <?= Yii::$app->session->getFlash('success') ?>
             </div>
         <?php endif; ?>
@@ -24,7 +26,7 @@ use yii\widgets\ActiveForm; // подключаем виджет для выво
     <!-- выводим поля формы из модели user -->
     <?=$form->field($user, 'name')->label('<b>Имя:</b>') ?>
     <?=$form->field($user, 'surname')->label('<b>Фамилия:</b>') ?>
-    <?=$form->field($user, 'phone', ['enableAjaxValidation' => true])->label('<b>Телефон</b> (<u>без 8 или +7</u>)<b>:</b>') ?>
+    <?=$form->field($user, 'phone', ['enableAjaxValidation' => true])->label('<b>Телефон</b> (<u>без +7</u>)<b>:</b>') ?>
     <br>
     
     <!-- кнопка отправки данных -->

@@ -10,7 +10,7 @@ use app\models\User_table;
 
 class FormController extends Controller
 {
-   public $layout = 'test';
+   public $layout = 'form_layout';
    public $view_user;
 
     public function actionForm() {
@@ -37,6 +37,8 @@ class FormController extends Controller
     }
 
     public function actionShow() {
+        $this->view->title = 'Список пользователей';
+
         $users = User_table::find()->all(); // создаем объект запроса к базе данных и получаем все записи из таблицы uder_table
 
         return $this->render('view_user',
@@ -46,6 +48,8 @@ class FormController extends Controller
     }
 
     public function actionCreate() {     // добавляем пользователя в базу данных
+        $this->view->title = 'Добавление пользователя';
+
         $user = new User_table();
 
         if(\Yii::$app->request->isAjax){ // если данные приходят по AJAX
@@ -69,7 +73,9 @@ class FormController extends Controller
     }
 
       public function actionUpdate($id= '') { // обновляем данные о пользователе по id
-          $user = User_table::findOne($id); // редактируемая запись в таблице
+        $this->view->title = 'Редактирование пользователя';
+
+        $user = User_table::findOne($id); // редактируемая запись в таблице
 
         if(!$user) { // проверка, существует ли такой пользователь
             throw new NotFoundHttpException('Данный пользователь НЕ НАЙДЕН -('); // ошибка 404
@@ -91,6 +97,7 @@ class FormController extends Controller
     }
 
     public function actionDelete($id = '') {
+        $this->view->title = 'Удаление пользователя';
         $user = User_table::findOne($id); // удаляемая из таблицы запись
 
         if($user) { // если пользователь существует

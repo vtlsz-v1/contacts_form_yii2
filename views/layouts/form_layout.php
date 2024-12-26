@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 $this->beginPage();
 
-\app\assets\TestAsset::register($this);
+\app\assets\FormLayoutAsset::register($this); // регистрация комплекта ресурсов
 ?>
 <!doctype html>
 <html lang="<?= Yii::$app->language ?>">

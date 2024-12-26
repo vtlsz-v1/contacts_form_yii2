@@ -3,11 +3,12 @@ use yii\helpers\Html; // используется для вывода кнопк
 use yii\widgets\ActiveForm; // подключаем виджет для вывода формы
 ?>
 <div class="col-md-8 mx-auto">
-    <h1 class="text-center">Редактирование пользователя <span class="text-danger">ID <?=$user->id ?></span></h1>
+    <h1 class="text-center"><?=$this->title ?> <span class="text-danger">ID <?=$user->id ?></span></h1>
 
     <!-- сообщение об успехе -->
     <?php if(Yii::$app->session->hasFlash('success')): ?>
             <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                 <?= Yii::$app->session->getFlash('success') ?>
             </div>
         <?php endif; ?>
@@ -15,6 +16,7 @@ use yii\widgets\ActiveForm; // подключаем виджет для выво
         <!-- сообщение об ошибке -->
         <?php if(Yii::$app->session->hasFlash('error')): ?>
             <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
                 <?= Yii::$app->session->getFlash('success') ?>
             </div>
         <?php endif; ?>

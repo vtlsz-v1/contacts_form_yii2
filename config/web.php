@@ -12,7 +12,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    //'layout' => 'test', // шаблон для всего сайта по умолчанию
+    //'layout' => 'form_layout', // шаблон для всего сайта по умолчанию
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -44,14 +44,14 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'enablePrettyUrl' => true, // активация ЧПУ
+            'showScriptName' => false, // откл. показ в адр. строке браузера название скрипта
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];

@@ -1,4 +1,4 @@
-<h1 class="text-center">Список пользователей</h1>
+<h1 class="text-center"><?=$this->title ?></h1>
 <!-- выводим информацию о пользователях в виде таблицы -->
 <table class="table table-bordered shadow table-hover">
     <tr class="sticky-top">
